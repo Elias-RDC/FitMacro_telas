@@ -25,10 +25,12 @@ class LoginPage extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Fundo com imagem
-          Image.asset('assets/images/bg_fitness.jpg', // coloque a imagem na pasta assets
+          // Fundo com imagem (agora usando Image.asset)
+          Image.asset(
+            'assets/images/imagem_fundo.jpg', // O caminho correto para a imagem de fundo
             fit: BoxFit.cover,
           ),
+
           // Sombra escura levemente transparente para melhorar contraste
           Container(color: Colors.black.withOpacity(0.4)),
 
@@ -53,7 +55,6 @@ class LoginPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none,
                       ),
-                      prefixIcon: Image.asset('assets/images/logo.jpeg', height: 60),
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -81,7 +82,7 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: (){},
                         child: const Text(
                           'Crie sua conta',
                           style: TextStyle(color: Colors.white),
@@ -99,23 +100,24 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 16),
 
                   // Botão de login
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        'Log-in',
-                        style: TextStyle(fontSize: 16),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,         // Cor de fundo do botão
+                      foregroundColor: Colors.white,       // Cor do texto (e também dos ícones, se houver)
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
                     ),
+                    onPressed: () {},
+                    child: const Text(
+                      'Log-in',
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
+                ),
 
                   const SizedBox(height: 40),
 
@@ -125,7 +127,7 @@ class LoginPage extends StatelessWidget {
                       Icon(Icons.fitness_center, color: Colors.red, size: 40),
                       SizedBox(height: 4),
                       Text(
-                        'FITMACRO\nDIETA E BOA FORMA',
+                        'FITMACRO\nSAÚDE E BOA FORMA',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.white,
